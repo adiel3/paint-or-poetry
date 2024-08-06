@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Paint or poetry?</title>
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-size: 20px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            text-rendering: optimizeLegibility;
+        }
+
+        .content {
+            max-width: 640px;
+            margin: auto;
+        }
+
+        .header {
+            padding: 3em 0;
+        }
+
+        a {
+            color: #76a1b9;
+        }
+
+        .indented {
+            padding-left: 50pt;
+            padding-right: 50pt;
+        }
+
+        .story {
+            max-width: 600px;
+            margin: auto;
+            padding-left: 50pt;
+            padding-right: 50pt;
+            font-size: 18px;
+        }
+
+        .footer {
+            background: #f4f4f4;
+            text-align: center;
+            font-size: 0.8em;
+            margin-top: 4em;
+            padding: 4em 0;
+            padding-left: 30pt;
+            padding-right: 30pt;
+        }
+
+        figure {
+            margin: 0;
+            padding-bottom: 1.2em;
+        }
+
+        figcaption {
+            font-size: 0.8em;
+            text-align: center;
+            margin-top: 0.5em;
+            color: #666;
+        }
+
+        h1 {
+            font-family: 'Lora', Georgia, serif;
+            font-weight: bold;
+            font-size: 3em;
+            line-height: 1.1;
+        }
+
+        .subhead {
+            font-family: 'Lora', Georgia, serif;
+        }
+
+        iframe,
+        img,
+        video {
+            max-width: 100%;
+        }
+
+        p {
+            line-height: 1.6;
+            margin: 0;
+            padding-bottom: 1.2em;
+        }
+
+        ul {
+            margin: 0;
+            padding-bottom: 1em;
+            line-height: 1.6;
+        }
+
+        iframe {
+            padding-bottom: 1.2em;
+        }
+
+        code {
+            font-family: 'Courier New', monospace;
+            background: #fffbaf;
+            font-size: 0.85em;
+        }
+
+        .full-width figure {
+            text-align: center;
+            width: 100%;
+            max-width: none;
+        }
+
+        /* margin on mobile */
+        @media (max-width: 640px) {
+            body {
+                font-size: 18px;
+            }
+
+            .content {
+                padding-left: 0.5em;
+                padding-right: 0.5em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="header">
+            <h1>Paint or poetry?</h1>
+            <p class="subhead">A journey into the delightfully bizarre world of Benjamin Moore paint color descriptions.</p>
+        </div>
+        <figure>
+            <img
+                src="lost-locket.jpg">
+            <figcaption>Moose the cat lounges in front of a wall painted with <i>Lost Locket</i> from <a href="https://www.benjaminmoore.com/en-us/paint-colors/color/csp-410/lost-locket">Benjamin Moore.</a></figcaption>
+        </figure>
+        <div class="byline">
+            <p>By <a href="https://github.com/adiel3">Adiel Kaplan</a></p>
+        </div>
+        <p></p>
+        <p>Back in May, I found myself learning far more than I ever expected to about about paint colors, as my friend 
+            Sara agonized over what color to repaint her bedroom, updating me with every new option along the way. 
+            After weeks of consideration and many paint samples, she finally selected <span style='color:#BBA8A3'><b>Lost Locket</b></span>, 
+            a pleasant, grayish mauve from Benjamin Moore.</p>
+        <p>But there was something about the color that struck both of us — unlike the dozen others she had considered, the description for 
+            <span style='color:#BBA8A3'><b>Lost Locket</b></span> on the company's website was strangely whimsical:</p>
+        <p class="indented"><span style='color:#BBA8A3'><i>"There, between the attic floorboards, a small, pink sweetheart necklace called out to be found."</i></span></p>
+        <p>All the other paints she had shown me had unremarkable descriptions — short sentences about the shade, undertones or origin of the color. 
+            But this, this was poetry.</p>
+        <p>Like a good poem, the words stuck with me, perhaps for their incongruity or the questions they prompted. 
+            The "necklace calling out to be found" would pop into my head at random moments over the next few weeks, and I soon 
+            began to wonder if there were other poems hidden in the Benjamin Moore paint library?</p>
+        <p>By July, I realized that I needed to know.</p>
+        <p>Benjamin Moore, one of the top paint manufacturers in the United States, lists <b>3,589 paint colors</b> across <a href="https://www.benjaminmoore.com/en-us/paint-colors/color-families">nine color families</a> 
+            on its website. Details about each paint, including the color description, live on individual pages — too many for a person seeking poetry to sift through one by one.</p>
+            <p>But not too many for an enterprising data journalist to turn into an analyzable dataset.</p>
+        <p>So that is what I did. Using a combination of browser-automated web scraping and undocumented API queries to the <a href="https://www.benjaminmoore.com/en-us">benjaminmoore.com</a> paint 
+            search tool, I downloaded a database of <b>3,657 paint colors,</b> along with their descriptions, hex codes and other basic details. 
+            (I found 68 additonal paint colors through the undocumented API that were not in the list of paint names scraped from the color family webpages.)</p>
+        <p>To categorize the descriptions, I turned to ChatGPT, asking the large language model to classify them several different ways.</p>
+        <p>First I had it tell me which of the descriptions were for colors. Then which ones were poetry. It labeled <b>97.2%</b> as color 
+            descriptions and <b>6.6%</b> as poetry. There were some it determined were both, and a few it labeled as neither.</p>
+
+        <iframe title="Five percent of Benjamin Moore paint descriptions are poems and color descriptions, per ChatGPT" aria-label="Stacked Columns" id="datawrapper-chart-jWD4U" src="https://datawrapper.dwcdn.net/jWD4U/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="462" data-external="1"></iframe>
+        <script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r=0;r<e.length;r++)if(e[r].contentWindow===a.source){var i=a.data["datawrapper-height"][t]+"px";e[r].style.height=i}}}))}();
+        </script>
+
+        <p>I looked through the 59 descriptions that the model considered neither poems nor color descriptions and noticed a pattern — many of them read like lines 
+            from a strange story. A few of the descriptions also seemed to be about colors from a specific hisorical era. 
+            So I went back to ChatGPT, this time giving the artificial intelligence more freedom. Instead of yes/no questions, I asked it to classify the descriptions 
+            as one of four types: color description, poetry, story, or historically specific.</p>
+        
+        <p>Then I looked to see if there were any trends across the different color families. There was some variation, but because the vast 
+            majority for each color family were labeled descriptions, the differences were small.</p>
+        
+        <p></p>
+        <iframe title="Gray and neutral colors had the highest percent of non-standard color descriptions" aria-label="Stacked Bars" id="datawrapper-chart-PX5Vb" src="https://datawrapper.dwcdn.net/PX5Vb/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="484" data-external="1"></iframe>
+        <script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r=0;r<e.length;r++)if(e[r].contentWindow===a.source){var i=a.data["datawrapper-height"][t]+"px";e[r].style.height=i}}}))}();
+        </script>
+        
+        <br><br>   
+        
+        <p>There were dozens of descriptions that the model determined were lines from a story. More than double the number it labeled as poetry, in fact.
+            It was not successful at labeling the historical colors, however, finding only one, <b><span style='color:#6E743A'>Timson green:</span></b></p>
+        <p class="indented"><span style='color:#6E743A'><i>"Based on early 19th century paint evidence found on the Timson House located just outside the historic area."</i></span></p>            
+        <p>A quick manual check found at least a dozen descriptions that referenced paints specific to a decade, century or historic place. 
+            It is likely that the historical part of this classification could be made to work using training data, since there were clear examples in the dataset. 
+            Unfortunately, that was beyond the scope of this project.</p>
+        
+        <p>The descriptions the model classified in the story category had quite a range though, from bubble tea snacks to horseback rides and hardy shrubs:</p>
+        <ul><i>
+            <li><span style='color:#C86361'>"Savoring the fruity tea and the pink tapioca beads, she welcomed this cool delight against the blazing August heat."</span></li>
+            <li><span style='color:#6B4E3E'>"Newly polished, my favorite boots were ready for a fall ride with the new mare."</span></li>
+            <li><span style='color:#C2C8B8'>"Wind whips through the New Mexican desert, displacing sand and rock, yet the hardy shrubs stand their ground."</span></li>
+        </i></ul>
+
+        <p>To check the model's work, I read through each description that it had put in a category other than "color description" and manually 
+            noted whether I considered them as lines from a story. I generally agreed with the model, but added a number of the descriptions 
+            it had classified as poetry to the story category, for a total of <b>95 story descriptions.</b></p>
+            
+        <p>The story lines were fascinating, and I was curious what they would look like together. So I asked the model one last thing — 
+            to write a story using only those 95 descriptions. That story is below, with each in the color it is describing (some descriptions have multiple sentences):</p>
+
+        <div class="story"><b><i>
+            <p><span style='color:#949476'>In his crisp dress uniform, the new cadet strolled the hallowed hallways, a surge of pride filling his chest. </span>
+                <span style='color:#773935'>Entering the historic hotel, the elegant staircase beckoned them with its grandeur. </span>
+                <span style='color:#BB9D61'>The brilliant silk-damasked walls seemed to swirl with the orchestra's waltz. "Care to join in the dance?" he asked. </span>
+                <span style='color:#D1B9A9'>As they left the dance, he placed the soft pashmina around her shoulders to ward off the evening chill.</span></p>
+                
+            <p><span style='color:#496E73'>Rowing the deep blue, almost green sea, the fisherman speaks quietly to his love that waits on shore. </span>
+                <span style='color:#82A1A7'>Foghorns sounded through the morning mist as the great tall ship sailed into the bay. </span>
+                <span style='color:#DAAE85'>The setting sun cast its warm glow across the fields, promising that a bountiful harvest would not be far behind. </span>
+                <span style='color:#D5B781'>Feel the golden rays and the sand between your toes as you stroll along the shore at sunset. </span></p>
+                
+            <p><span style='color:#6B4E3E'> Newly polished, my favorite boots were ready for a fall ride with the new mare. </span> 
+                <span style='color:#717571'>Autumn is upon the old manse. Its romantic, neglected gardens mirror the tone of the old estate with surprising warmth against the chill. </span>
+                <span style='color:#744634'>A crisp autumn leaf drifts lazily down the cool stream, rippling over smooth bedrocks. </span>
+                <span style='color:#B44D51'>The delicate stitches withstood nearly a century of wear, still adorning the beautiful gown that had been passed down for generations. </span></p>
+                
+            <p><span style='color:#A2B0B7'>While rummaging through the old trunk in the attic, I found a beautiful piece of antique fabric bought on our honeymoon in Paris. </span>
+                <span style='color:#D6BBBB'>The faint scent of violets still clung to each folded page. As she opened them, pink petals floated softly to the floor. </span>
+                <span style='color:#C5B7AC'>Inside the basket was a hidden trove of little treasures - a gold-plated thimble, tiny buttons, a silver buckle.</span></p>
+                
+            <p><span style='color:#B0625C'>Every block held a special meaning. The yellow gingham dress, a patch of velvet from his smoking jacket, coral-orange silk that lined her wedding hat. </span>
+                <span style='color:#EDE9C9'>The sentimental letter was carefully scripted on delicately crafted paper, which unfolded its own story. </span>
+                <span style='color:#E3DED0'> Each opalescent sphere, carefully knotted in place, seemed more like a strand of precious moments. </span></p>
+                
+            <p><span style='color:#944544'>Warm cinnamon sticks and cloves simmered away on the stove, reminding him of his childhood home in Bengal. </span>
+                <span style='color:#A55527'>A roasted Indian delight, full of paprika, coriander and cumin, fresh from an ancient tandoor oven. </span>
+                <span style='color:#BD8057'>Transport yourself to the stone hearth of a mountain chalet, and cozy up to the glowing fire.</span></p>
+                
+            <p><span style='color:#D1806D'>The intoxicating aromas of the sweet tropical fruits hung in the air as the sun dipped into the Pacific. </span>
+                <span style='color:#C86361'>Savoring the fruity tea and the pink tapioca beads, she welcomed this cool delight against the blazing August heat. </span>
+                <span style='color:#E0DBA9'>Refreshing and tart, the frozen scoop of tangy citrus was the perfect ending to their day at the beach.</span></p>
+                
+            <p><span style='color:#D69679'>The ancient floor in the Florentine villa has weathered over time with a beautiful patina. </span>
+                <span style='color:#E3DFD5'>Only on the most special occasions, her prized, lustrous dishes and cups would grace the dining table like dazzling pearl jewelry. </span>
+                <span style='color:#AAA393'>The winemaker's stone country house sat high on the hill, overlooking the bountiful rows of grapevines below. </span>
+                <span style='color:#8B5C2B'>Generations of mothers and grandmothers have gathered around large iron pots to hand-whisk the frothy drink.</span></p>
+                
+            <p><span style='color:#F2E7BD'>Pure decadence - like the moment when all that sweet, creamy goodness just reaches the point of dissolving on the soft bread. </span>
+                <span style='color:#F0E6D2'>Taking the first sip of the frothy beverage, she felt warm and content on the cold winter day. </span>
+                <span style='color:#B59C8D'>The barista deftly whisked together just the right amounts of strong coffee, Dutch cocoa, cinnamon and cream. </span>
+                <span style='color:#485241'>A tangy blend of aromas, captured at their most fragrant, spices things up with a bold, fresh bite. </span></p>
+                
+            <p><span style='color:#5E3B2F'>The earthy tiles cooled her feet as she entered the solarium for her morning cup of tea. </span>
+                <span style='color:#B7C6BE'>Illuminated by early sunlight, a cool, gossamer morning mist slowly rolls across the still lake. </span>
+                <span style='color:#87917A'>Follow this hidden trail to wherever it leads, all the while immersing yourself in rich, luscious greenery. </span>
+                <span style='color:#8A9E88'>Enjoy a skip through the luscious green meadow, full of summer warmth and joy.</span></p>
+                
+            <p><span style='color:#ACAE92'>The spring lawn was filled with treasures waiting for new homes, where they would create new stories and traditions. </span>
+                <span style='color:#9BA375'>Careless laughter and childhood giggles abound. Remember the delightful freedom of running through the green grass in your bare feet? </span>
+                <span style='color:#707C79'> Lazy summer days sipping lemonade, how quickly they flew by. </span></p>
+                
+            <p><span style='color:#848181'>With only light wear around the cuffs, the old coat still looked surprisingly new, hanging on the closet door. </span>
+                <span style='color:#C6A883'>The classic overcoat hangs in the back of Dad's closet, evoking memories of comfort and warmth. </span>
+                <span style='color:#D5CBB8'>She tucked the borrowed handkerchief into the sleeve of her wedding gown before gliding down the aisle to her beloved.</span></p>
+                
+            <p><span style='color:#919E97'>He bent down to pick up the smooth, pale fragment, polished by the salt, sand and time. </span>
+                <span style='color:#CBB79C'>Quickly, I ran out of the surf to lie down on the warm, sun-drenched beach. What a relaxing way to spend the day. </span>
+                <span style='color:#DED6BF'>This secluded, sandy beach was the perfect place to get away from it all. </span>
+                <span style='color:#1E4850'>A boat sails at midnight toward the safety of port. The murky waters belie their depth. </span></p>
+                
+            <p><span style='color:#B2AB99'>Years later, she found in his trunk her missing gloves from their first date. </span>
+                <span style='color:#E3CEAC'>The professor couldn't believe his eyes as he extracted the rare, missing manuscripts from their long-hidden box. </span>
+                <span style='color:#A7C7BC'>The tall bottle sat in the windowsill for decades, each day casting light across the kitchen table. </span></p>
+                
+            <p><span style='color:#586471'>Euphoria erupts as the intrepid climbers reach the breathtaking summit of their South American destination. </span>
+                <span style='color:#DCDED8'>As dawn breaks, the sun illuminates the fog, revealing mountain peaks in the distance. </span>
+                <span style='color:#929591'>Billowing clouds gather above, ready to unleash the much-needed rain upon the parched fields.</span></p>
+                
+            <p><span style='color:#C2C8B8'>Wind whips through the New Mexican desert, displacing sand and rock, yet the hardy shrubs stand their ground. </span>
+                <span style='color:#404343'>Steeples and turrets rise and offer their faint outline, just barely discernible in the early, moonless twilight. </span>
+                <span style='color:#C9CED1'>As she opened the door, she admired the grass, now frosted with crystalline beauty. </span></p>
+            <p><span style='color:#BBA8A3'>There, between the attic floorboards, a small, pink sweetheart necklace called out to be found.</span></p></b></i>
+        </div>
+    </div>
+
+    <div class="full-width figure">
+        <figure>
+            <img
+                src="paint-collection.jpg">
+            <figcaption>A collection of paint and paint sample cans from Benjamin Moore. Every paint tells a story.</figcaption>
+        </figure>
+    </div>
+
+    <div class="footer">
+        <div class="content">
+            <p>Tools used for this project include Playwright, Instructor, and ChatGPT 4.0. Read more about the project <a href="https://github.com/adiel3">on GitHub.</a></p>
+            <p>Webpage built from <a href="https://github.com/jsoma/page-templates/">a Jonathan Soma template.</a> Photography by Sara Miller.</p>
+        </div>
+    </div>
+</body>
+
+</html>
